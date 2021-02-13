@@ -107,65 +107,18 @@ Conditions:
 
 Resources:
 
-
-  Type: AWS::EC2::MyEC2Instance
-Properties: 
-  AdditionalInfo: String
-  Affinity: String
-  AvailabilityZone: String
-  BlockDeviceMappings: 
-    - BlockDeviceMapping
-  CpuOptions: 
-    CpuOptions
-  CreditSpecification: 
-    CreditSpecification
-  DisableApiTermination: Boolean
-  EbsOptimized: Boolean
-  ElasticGpuSpecifications: 
-    - ElasticGpuSpecification
-  ElasticInferenceAccelerators: 
-    - ElasticInferenceAccelerator
-  EnclaveOptions: 
-    EnclaveOptions
-  HibernationOptions: 
-    HibernationOptions
-  HostId: String
-  HostResourceGroupArn: String
-  IamInstanceProfile: Web1InstanceInstanceProfile
-  ImageId: LatestAmiId
-  InstanceInitiatedShutdownBehavior: String
-  InstanceType: InstanceType
-  Ipv6AddressCount: Integer
-  Ipv6Addresses: 
-    - InstanceIpv6Address
-  KernelId: String
-  KeyName: String
-  LaunchTemplate: 
-    LaunchTemplateSpecification
-  LicenseSpecifications: 
-    - LicenseSpecification
-  Monitoring: Boolean
-  NetworkInterfaces: 
-    - NetworkInterface
-  PlacementGroupName: String
-  PrivateIpAddress: String
-  RamdiskId: String
-  SecurityGroupIds: 
-    - PublicSecurityGroup
-  SecurityGroups: 
-    - String
-  SourceDestCheck: Boolean
-  SsmAssociations: 
-    - SsmAssociation
-  SubnetId: PublicSubnet1
-  Tags:
-    - Key: Name
-      Value: Simple Server
-  Tenancy: String
-  UserData: String
-  Volumes: 
-    - Volume
-
+  MyEC2Instance:
+    Type: AWS::EC2::Instance
+    Properties:
+      IamInstanceProfile: !Ref Web1InstanceInstanceProfile
+      ImageId: !Ref LatestAmiId
+      InstanceType: !Ref InstanceType
+      SecurityGroupIds:
+        - !Ref PublicSecurityGroup
+      SubnetId: !Ref PublicSubnet1
+      Tags:
+        - Key: Name
+          Value: Simple Server
 
   MyS3Bucket:
     Type: AWS::S3::Bucket
