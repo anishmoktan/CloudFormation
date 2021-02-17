@@ -1,5 +1,5 @@
 # CloudFormation
-IaaC yaml files from Quick Labs and Well-architected tutorials
+This repository includes IaaC yaml files from Quick Labs and Well-architected tutorials
 
 Quick Labs:
     Filename: vpc-1.yaml
